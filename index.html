@@ -1,77 +1,65 @@
-
+HTML
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tigrinho Seu Mundo Virtual</title>
-<style>body {
+<title>Tigrinho - Meu Mundo Virtual</title>
+<style>
+body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   text-align: center;
   color: white;
-  background: linear-gradient(#24105c,#e66b24);
+  background: linear-gradient(#24105c, #e66b24);
   min-height: 100vh;
 }
 h1 { padding-top: 25px; }
 .tiger { font-size: 120px; margin: 25px; }
 button {
-  background: #ffcf28;
+  background: #ffc928;
   border: 0;
   border-radius: 15px;
-  padding: 15px 25px;
-  font-size: 19px;
+  padding: 18px 30px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 10px;
+  cursor: pointer;
 }
-.card {
-  background: #ffffff22;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 20px;
+.score {
+  font-size: 28px;
+  margin: 25px;
 }
 </style>
 </head>
 <body>
-<h1>🐯 Tigrinho Seu Mundo Virtual</h1>
-<div class="card">
-  <div class="tiger" id="tiger">🐯</div>
-  <h2>Olá! Eu sou seu Tigrinho!</h2>
-  <p>Cuide do seu amigo virtual!</p>
-  <h2>🍌 Bananas: <span id="bananas">0</span></h2>
-  <h2>❤️ Felicidade: <span id="feliz">50</span></h2>
-  <button onclick="brincar()">🎾 Brincar</button>
-  <button onclick="comida()">🍌 Dar comida</button>
-  <p id="mensagem">Vamos brincar?</p>
+
+<h1>🐯 Tigrinho - Meu Mundo Virtual</h1>
+
+<div class="tiger">🐯</div>
+
+<h2>Bem-vindo ao jogo!</h2>
+
+<div class="score">
+  ⭐ Estrelas: <span id="score">0</span>
 </div>
+
+<button onclick="ganharEstrela()">
+  GANHAR ESTRELA ⭐
+</button>
+
+<p id="message">Clique no botão para começar!</p>
+
 <script>
-let bananas = 0;
-let feliz = 50;
+let pontos = 0;
 
-function brincar() {
-  feliz = Math.min(100, feliz + 10);
-  document.getElementById("feliz").textContent = feliz;
-  document.getElementById("mensagem").textContent =
-    "Seu Tigrinho está feliz! 🐯";
-}
-
-function comida() {
-  if (bananas >= 1) {
-    bananas--;
-    feliz = Math.min(100, feliz + 5);
-    document.getElementById("bananas").textContent = bananas;
-    document.getElementById("feliz").textContent = feliz;
-    document.getElementById("mensagem").textContent =
-      "Que delícia! 🍌";
-  } else {
-    bananas += 5;
-    document.getElementById("bananas").textContent = bananas;
-    document.getElementById("mensagem").textContent =
-      "Você ganhou 5 bananas para cuidar do Tigrinho!";
-  }
+function ganharEstrela() {
+  pontos++;
+  document.getElementById("score").textContent = pontos;
+  document.getElementById("message").textContent =
+    "Parabéns! Você ganhou uma estrela! 🐯";
 }
 </script>
+
 </body>
 </html>
-
